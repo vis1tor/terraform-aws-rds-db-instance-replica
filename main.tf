@@ -31,4 +31,5 @@ resource "aws_db_instance" "this" {
   auto_minor_version_upgrade            = each.value.rds_auto_minor_version_upgrade
   maintenance_window                    = each.value.rds_maintenance_window == "" ? null : each.value.rds_maintenance_window
   deletion_protection                   = each.value.rds_deletion_protection
+  parameter_group_name                  = var.rds_parameter_group
 }

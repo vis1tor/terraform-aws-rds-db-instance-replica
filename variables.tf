@@ -33,6 +33,11 @@ variable "rds_info" {
     rds_auto_minor_version_upgrade            = string
     rds_maintenance_window                    = string
     rds_deletion_protection                   = string
+    rds_parameter_group = object({
+      rds_parameter_group_name   = string
+      rds_parameter_group_family = string
+      rds_parameter              = any
+    })
   }))
 }
 
@@ -41,5 +46,9 @@ variable "rds_sg_id" {
 }
 
 variable "rds_replicate_source_db" {
+  type = string
+}
+
+variable "rds_parameter_group" {
   type = string
 }
